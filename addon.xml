@@ -16,7 +16,7 @@ accepted commands are 'activate', 'toggle' and 'standby'. Example:
 "params":{"command":"activate"}},"id":1}</description>
 		<platform>all</platform>
 		<website></website>
-		<source>https://github.com/joshjowen</source>
+		<source>https://github.com/1voud</source>
 		<forum></forum>
 		<email></email>    
 	</extension>
