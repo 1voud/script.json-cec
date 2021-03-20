@@ -1,24 +1,26 @@
 import xbmc
-import urlparse
+#import urllib
 import sys
 import time
 
 try:
-        params = urlparse.parse_qs('&'.join(sys.argv[1:]))
-        command = params.get('command',None)
+        xbmc.log(str(sys.argv[1]), 2)
+#        params = urllib.parse_qs('&'.join(sys.argv[1:]))
+#        xbmc.log(str(params), 2)
+#        command = params.get('command',None)
+#        xbmc.log(str(command), 2)
 except:
-        command = None
-
-if command and command[0] == 'activate':
+        xbmc.log("Failed", 2)
+if sys.argv[1] == 'command=activate':
         xbmc.executebuiltin('CECActivateSource')
 
-elif command and command[0] == 'toggle':
+elif sys.argv[1] == 'command=toggle':
         xbmc.executebuiltin('CECToggleState')
 
-elif command and command[0] == 'standby':
+elif sys.argv[1] == 'command=standby':
         xbmc.executebuiltin('CECStandby')
 
-elif command and command[0] == 'stop_and_standby':
+elif sys.argv[1] == 'command=stop_and_standby':
         if xbmc.Player().isPlaying():
                 xbmc.executebuiltin("PlayerControl(Stop)")
                 time.sleep(3)
